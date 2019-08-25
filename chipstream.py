@@ -1,14 +1,17 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
- 
+
 import creds
- 
+
 # # # # TWITTER STREAMER # # # #
+
+
 class TwitterStreamer():
     """
     Class for streaming and processing live tweets.
     """
+
     def __init__(self):
         pass
 
@@ -19,7 +22,7 @@ class TwitterStreamer():
         auth.set_access_token(creds.access_token, creds.access_token_secret)
         stream = Stream(auth, listener)
 
-        # This line filter Twitter Streams to capture data by the keywords: 
+        # This line filter Twitter Streams to capture data by the keywords:
         stream.filter(track=hash_tag_list)
 
 
@@ -28,6 +31,7 @@ class StdOutListener(StreamListener):
     """
     This is a basic listener that just prints received tweets to stdout.
     """
+
     def __init__(self, fetched_tweets_filename):
         self.fetched_tweets_filename = fetched_tweets_filename
 
@@ -40,14 +44,13 @@ class StdOutListener(StreamListener):
         except BaseException as e:
             print("Error on_data %s" % str(e))
         return True
-          
 
     def on_error(self, status):
         print(status)
 
- 
+
 if __name__ == '__main__':
- 
+
     # Authenticate using config.py and connect to Twitter Streaming API.
     hash_tag_list = ["maros", "kuzmiak"]
     fetched_tweets_filename = "tweets.txt"

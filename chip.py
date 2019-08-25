@@ -1,7 +1,7 @@
-import tweepy
 import pandas as pd
+import tweepy
 
-twitter_accounts = ['@get_chip','@monzo','@StarlingBank','@RevolutApp']
+twitter_accounts = ['@get_chip', '@monzo', '@StarlingBank', '@RevolutApp']
 
 print(twitter_accounts)
 
@@ -15,7 +15,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-tweets = tweepy.Cursor(api.search,q=twitter_accounts).items(5)
+tweets = tweepy.Cursor(api.search, q=twitter_accounts).items(5)
 
 # Collect a list of tweets
 [tweet.text for tweet in tweets]
