@@ -1,5 +1,4 @@
-ok = 'aha.ho'
+import os
+import glob
 
-one, two, thre = ok.partition('.')
-
-print(one,two,thre)
+[os.path.realpath for p in glob.glob(p)]
