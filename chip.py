@@ -15,9 +15,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-# api.update_status("Look, I'm tweeting from #Python")
-tweets = tw.Cursor(api.search,
-              q=search_words,
-              lang="en",
-              since=date_since).items(5)
-tweets
+tweets = tweepy.Cursor(api.search,q=twitter_accounts).items(5)
+
+# Collect a list of tweets
+[tweet.text for tweet in tweets]
