@@ -1,4 +1,8 @@
 import os
 import glob
 
-[os.path.realpath for p in glob.glob(p)]
+
+def ok():
+    [os.path.realpath for p in glob.glob(p)]
+
+ok()

@@ -3,8 +3,6 @@ import tweepy
 
 twitter_accounts = ['@get_chip', '@monzo', '@StarlingBank', '@RevolutApp']
 
-print(twitter_accounts)
-
 consumer_key = 'qLSVDZMb4XDKytE26DuApbNok'
 consumer_secret = 'WJpcfIVv9Iu5nAa5A3fSx1bZdp34mlmmL7KShz1Jj81xK5mofM'
 access_token = '859383719236444161-xdreob4U9B9JkpRR18q7htmKbKSIMI6'
