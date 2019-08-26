@@ -1,5 +1,7 @@
 import tweepy 
 import creds # credentials for authorization
+import json
+import time
 
 """"
 using AppAuthHandler to go faster as we need read-only access to public information
@@ -9,10 +11,12 @@ api = tweepy.API(auth)
 
 # twitter_accounts = ['@get_chip','@monzo','@StarlingBank','@RevolutApp']
 
+account_tweets = tweepy.Cursor(api.search, q='revolut'+'-filter:retweets').items(10)
 
-account_tweets = tweepy.Cursor(api.search, q='revolut'+'-filter:retweets').items(1000)
+tweet_collection = [tweet.id for tweet in account_tweets]
 
-for tweet in account_tweets:
-    print(tweet._json)
+cnt = len(tweet_collection)
 
-# for tweet in tweepy.Cursor(api.search, q='@get_chip'+'-filter:retweets').items(100):
+with open('tweets_'+str(cnt)+time.strftime("_%d%m%Y-%H%M%S_")+'.json', 'at') as f:
+   json.dump(tweet_collection, f)
+   f.close()
